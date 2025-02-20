@@ -37,6 +37,10 @@ dependencies {
     // Lombok para reducir el código boilerplate (e.g., getters, setters)
     compileOnly 'org.projectlombok:lombok:1.18.34'
     annotationProcessor 'org.projectlombok:lombok:1.18.34'
+
+    // Starter para construir aplicaciones web (incluye soporte RESTful)
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:10.1.31'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
 }
 
 tasks.named('test') {
