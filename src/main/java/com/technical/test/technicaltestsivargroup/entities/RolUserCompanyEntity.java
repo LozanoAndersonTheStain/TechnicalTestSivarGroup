@@ -10,7 +10,7 @@ import lombok.*;
 @Builder
 @Getter
 @Setter
-public class RolUserCompany {
+public class RolUserCompanyEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,7 +21,7 @@ public class RolUserCompany {
 
     @ManyToOne
     @JoinColumn(name = "company", nullable = false)
-    private Company company;
+    private CompanyEntity companyEntity;
 
     private String rol;
 }

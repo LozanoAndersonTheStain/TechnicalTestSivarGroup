@@ -14,7 +14,7 @@ import java.util.Set;
 @Setter
 public class UserEntity {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(nullable = false, length = 50)
@@ -29,6 +29,6 @@ public class UserEntity {
     @Column(nullable = false, length = 150)
     private String address;
 
-//    @OneToMany
-//    private Set<>
+    @OneToMany(mappedBy = "user")
+    private Set<RolUserCompanyEntity> rolUserCompanyEntities;
 }

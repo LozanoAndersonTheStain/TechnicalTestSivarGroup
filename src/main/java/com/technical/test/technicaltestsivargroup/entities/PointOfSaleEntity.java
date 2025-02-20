@@ -3,8 +3,6 @@ package com.technical.test.technicaltestsivargroup.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Set;
-
 @Entity(name = "point_of_sale")
 @Data
 @NoArgsConstructor
@@ -12,7 +10,7 @@ import java.util.Set;
 @Builder
 @Getter
 @Setter
-public class PointOfSale {
+public class PointOfSaleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,6 +24,7 @@ public class PointOfSale {
     @Column(nullable = false, length = 50)
     private String phone;
 
-    @ManyToMany(mappedBy = "pointOfSales")
-    private Set<Company> companies;
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private CompanyEntity company;
 }
