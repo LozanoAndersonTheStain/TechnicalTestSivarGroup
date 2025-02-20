@@ -27,6 +27,16 @@ dependencies {
 
     // Librería para leer archivos .env en Java
     implementation 'io.github.cdimascio:java-dotenv:5.2.2'
+
+    // Se utiliza para realizar el manejo de la persistencia de los datos
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Implementación del nucleo de Hibernate ORM para manejar las entidades con JPA
+    implementation 'org.hibernate.orm:hibernate-core:6.6.1.Final'
+
+    // Lombok para reducir el código boilerplate (e.g., getters, setters)
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
 }
 
 tasks.named('test') {
