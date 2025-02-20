@@ -1,6 +1,7 @@
 package com.technical.test.technicaltestsivargroup.services;
 
 import com.technical.test.technicaltestsivargroup.entities.UserEntity;
+import com.technical.test.technicaltestsivargroup.exeptions.DuplicateEntityException;
 import com.technical.test.technicaltestsivargroup.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,9 @@ public class UserService {
     }
 
     public UserEntity saveUser(UserEntity user) {
+        if (userRepository.existsByEmail(user.getEmail())) {
+            throw new DuplicateEntityException("User with email " + user.getEmail() + " already exists.");
+        }
         return userRepository.save(user);
     }
 

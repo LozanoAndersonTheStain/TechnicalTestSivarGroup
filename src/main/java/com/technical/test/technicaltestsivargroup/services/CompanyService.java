@@ -1,6 +1,7 @@
 package com.technical.test.technicaltestsivargroup.services;
 
 import com.technical.test.technicaltestsivargroup.entities.CompanyEntity;
+import com.technical.test.technicaltestsivargroup.exeptions.DuplicateEntityException;
 import com.technical.test.technicaltestsivargroup.repositories.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,9 @@ public class CompanyService {
     }
 
     public CompanyEntity saveCompany(CompanyEntity company) {
+        if (companyRepository.existsByNit(company.getNit())) {
+            throw new DuplicateEntityException("Company with NIT " + company.getNit() + " already exists.");
+        }
         return companyRepository.save(company);
     }
 

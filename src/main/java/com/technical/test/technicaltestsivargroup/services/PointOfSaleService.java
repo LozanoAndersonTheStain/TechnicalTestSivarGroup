@@ -1,6 +1,7 @@
 package com.technical.test.technicaltestsivargroup.services;
 
 import com.technical.test.technicaltestsivargroup.entities.PointOfSaleEntity;
+import com.technical.test.technicaltestsivargroup.exeptions.DuplicateEntityException;
 import com.technical.test.technicaltestsivargroup.repositories.PointOfSaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,9 @@ public class PointOfSaleService {
     }
 
     public PointOfSaleEntity savePointOfSale(PointOfSaleEntity pointOfSale) {
+        if (pointOfSaleRepository.existsByNameAndAddress(pointOfSale.getName(), pointOfSale.getAddress())) {
+            throw new DuplicateEntityException("Point of Sale with name " + pointOfSale.getName() + " and address " + pointOfSale.getAddress() + " already exists.");
+        }
         return pointOfSaleRepository.save(pointOfSale);
     }
 
