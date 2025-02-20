@@ -4,5 +4,5 @@ import com.technical.test.technicaltestsivargroup.entities.RolUserCompanyEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RolUserCompanyRepository extends JpaRepository<RolUserCompanyEntity, Long> {
-
+    boolean existsByUserIdAndCompanyIdAndRol(Long userId, Long companyId, String rol);
 }
