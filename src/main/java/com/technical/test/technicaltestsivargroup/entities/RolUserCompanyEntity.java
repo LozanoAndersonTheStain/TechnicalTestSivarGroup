@@ -20,7 +20,7 @@ public class RolUserCompanyEntity {
     private UserEntity user;
 
     @ManyToOne
-    @JoinColumn(name = "company", nullable = false)
+    @JoinColumn(name = "company_id", nullable = false)
     private CompanyEntity companyEntity;
 
     private String rol;
