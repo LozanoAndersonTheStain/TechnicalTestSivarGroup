@@ -41,7 +41,8 @@ dependencies {
     // Starter para construir aplicaciones web (incluye soporte RESTful)
     implementation 'org.apache.tomcat.embed:tomcat-embed-core:10.1.31'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-}
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'}
 
 tasks.named('test') {
     useJUnitPlatform()
